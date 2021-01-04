@@ -18,11 +18,30 @@
         </div>
       </router-link>
     </div>
+    <form class="search-box" @submit.prevent="">
+      <input type="text" placeholder="Type the movie name..." />
+      <input type="submit" value="Search" />
+    </form>
+
+    <div class="movies-list">Movies</div>
   </div>
 </template>
 
 <script>
-export default {};
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    // Search query
+    const search = ref('');
+    const movies = ref([]);
+
+    return {
+      search,
+      movies
+    };
+  }
+};
 </script>
 
 <style lang="scss">
@@ -33,11 +52,80 @@ export default {};
     .featured-img {
       display: block;
       width: 100%;
-      height: 300px;
+      height: 400px;
       object-fit: cover;
       object-position: center;
       position: relative;
       z-index: 0;
+    }
+  }
+
+  .detail {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    z-index: 1;
+    padding: 15px;
+
+    h3 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    input {
+      display: block;
+      appearance: none;
+      border: none;
+      background-color: none;
+
+      &[type='text'] {
+        width: 100%;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        transition: 400ms;
+        color: #3d3d3d;
+
+        &::placeholder {
+          columns: #3d3d3d;
+        }
+
+        &:focus {
+          box-shadow: 0px 3px 6px rgba($color: #000000, $alpha: 0.5);
+        }
+      }
+
+      &[type='submit'] {
+        width: 100%;
+        max-width: 250px;
+        background-color: #f4a261;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 20px;
+        text-transform: uppercase;
+        transition: 400ms;
+
+        &:active {
+          background-color: #e9c46a;
+        }
+      }
     }
   }
 }
