@@ -39,21 +39,8 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"    
-  },
-    "rules": {
-      "no-unused-vars": "off",
-      "trailing-comma": [true, {
-  "singleline": "never",
-  "multiline": {
-    "objects": "never",     
-    "arrays": "always",
-    "functions": "never",
-    "typeLiterals": "ignore"
   }
-}]
-    
-      
-    }
+ 
 },
   "browserslist": [
     "> 1%",
