@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- Featured movie card -->
-    <div class="feature-card">
+    <div class="featured-card">
       <router-link to="/movie/tt0409591">
         <img
           src="https://images.pexels.com/photos/4553622/pexels-photo-4553622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -33,7 +33,7 @@ export default {};
     .featured-img {
       display: block;
       width: 100%;
-      height: 250px;
+      height: 300px;
       object-fit: cover;
       object-position: center;
       position: relative;
