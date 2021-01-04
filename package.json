@@ -38,12 +38,27 @@
       "@vue/airbnb"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
-    }
+      "parser": "babel-eslint"    
   },
+    "rules": {
+      "no-unused-vars": "off",
+      "trailing-comma": [true, {
+  "singleline": "never",
+  "multiline": {
+    "objects": "never",     
+    "arrays": "always",
+    "functions": "never",
+    "typeLiterals": "ignore"
+  }
+}]
+    
+      
+    }
+},
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "prettier": { "singleQuote": true }
 }
