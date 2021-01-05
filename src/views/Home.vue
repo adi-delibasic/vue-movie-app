@@ -23,7 +23,22 @@
       <input type="submit" value="Search" />
     </form>
 
-    <div class="movies-list">{{}}</div>
+    <div class="movie-list">
+      <div class="movie" v-for="movie in movies" :key="movie.imdbID">
+        <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
+          <div class="movie-image">
+            <img :src="movie.Poster" alt="Movie Poster" />
+            <div class="movie-type">
+              {{ movie.Type }}
+            </div>
+          </div>
+          <div class="movie-details">
+            <p class="movie-year">{{ movie.Year }}</p>
+            <h3 class="movie-title">{{ movie.Title }}</h3>
+          </div>
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -142,6 +157,58 @@ export default {
         &:active {
           background-color: #e9c46a;
         }
+      }
+    }
+  }
+
+  // Movie list
+
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 6px;
+
+    .movie {
+      max-width: 50%;
+      flex: 1 1 50%;
+      padding: 14px 10px;
+
+      &-link {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      &-image {
+        position: relative;
+        display: block;
+        img {
+          display: block;
+          width: 100%;
+          height: 275px;
+          object-fit: cover;
+        }
+      }
+      &-type {
+        position: absolute;
+        padding: 6px 10px;
+        background-color: #e9c46a;
+        color: #fff;
+        bottom: 15px;
+        left: 0px;
+        text-transform: capitalize;
+      }
+      &-year {
+        color: #f3f3f3;
+      }
+      &-title {
+        color: #fff;
+      }
+
+      &-details {
+        background: rgba($color: #000000, $alpha: 0.1);
+        padding: 10px;
+        border-radius: 0px 0 10px 10px;
       }
     }
   }

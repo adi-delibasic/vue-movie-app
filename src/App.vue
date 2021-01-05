@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <router-link to="/">
-        <h1>Vue <span>Movies</span> DB</h1>
+        <h1><span>Movies</span> DB</h1>
       </router-link>
     </header>
     <main>
