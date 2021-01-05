@@ -44,11 +44,11 @@ export default {
         fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
           .then(response => response.json())
           .then(data => {
-            console.log(data);
+            //Store the ewsponse array
+            movies.value = data.Search;
+            // Reset input field
+            search.value = '';
           });
-
-        // Reset input field
-        search.value = '';
       }
     };
 
