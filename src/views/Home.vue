@@ -40,23 +40,18 @@ export default {
     const search = ref('');
     const movies = ref([]);
 
-    const keywords = computed(() => store.state.search.searchKeywords);
-
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
-        store.commit('setCurrentSearch', search.value);
-
+        console.log(search.value);
         // Reset input field
         search.value = '';
-        console.log(keywords.value);
       }
     };
 
     return {
       search,
       movies,
-      SearchMovies,
-      keywords
+      SearchMovies
     };
   }
 };
