@@ -1,6 +1,9 @@
 <template>
   <div class="movie-detail">
-    <h2>Movie Title</h2>
+    <h2>{{ movie.Title }}</h2>
+    <p>{{ movie.Year }}</p>
+    <img :src="movie.Poster" class="feature-img" alt="{{movie.Title}} poster" />
+    <p>{{ movie.Plot }}</p>
   </div>
 </template>
 
@@ -17,7 +20,7 @@ export default {
       fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          movie.value = data;
         });
     });
 
@@ -29,4 +32,23 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.movie-detail {
+  padding: 15px;
+  h2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .feature-img {
+    display: block;
+    max-width: 200px;
+    margin: 25px 0;
+  }
+  p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+}
+</style>
