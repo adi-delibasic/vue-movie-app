@@ -23,29 +23,24 @@
       <input type="submit" value="Search" />
     </form>
 
-    <div class="movies-list">Movies</div>
+    <div class="movies-list">{{}}</div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
 import env from '@/env.js';
+import { ref } from 'vue';
 
 export default {
   setup() {
+    // Vuex
+
     // Search query
     const search = ref('');
     const movies = ref([]);
 
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
-        // Fetch
-        fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-          });
-
         // Reset input field
         search.value = '';
       }
