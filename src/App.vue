@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <router-link to="/">
-        <h1><span>Movies</span> DB</h1>
+        <h1><span>Movies</span>DB</h1>
       </router-link>
     </header>
     <main>
@@ -44,6 +44,7 @@ header {
   h1 {
     color: #f4a261;
     font-size: 30px;
+    text-transform: capitalize;
 
     span {
       color: #e9c46a;
