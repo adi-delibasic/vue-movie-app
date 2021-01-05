@@ -2,18 +2,17 @@
   <div class="home">
     <!-- Featured movie card -->
     <div class="featured-card">
-      <router-link to="/movie/tt0409591">
+      <router-link to="/movie/tt0306414">
         <img
-          src="https://images.pexels.com/photos/4553622/pexels-photo-4553622.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          src="https://m.media-amazon.com/images/M/MV5BZmY5ZDMxODEtNWIwOS00NjdkLTkyMjktNWRjMDhmYjJjN2RmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
           alt="Featured movie poster"
           class="featured-img"
         />
         <div class="detail">
-          <h3>Featured Movie</h3>
+          <h3>The Wire</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel repellendus fugiat deserunt
-            perferendis, dignissimos reiciendis tempore autem fugit modi rem natus harum ipsa qui
-            delectus culpa voluptatibus mollitia dolorum molestiae.
+            Set in Baltimore, this show centers around the city's inner-city drug scene. It starts
+            as mid-level drug dealer, D'Angelo Barksdale beats a murder rap.
           </p>
         </div>
       </router-link>
