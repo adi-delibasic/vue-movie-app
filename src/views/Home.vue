@@ -41,6 +41,12 @@ export default {
 
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
+        fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+          });
+
         // Reset input field
         search.value = '';
       }
