@@ -3,11 +3,6 @@ import search from './modules/search';
 
 export default createStore({
 
-  // state: {
-  //   test: 'Test state'
-  // },
-
-
   modules: {
     search,
   },

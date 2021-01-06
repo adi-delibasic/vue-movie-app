@@ -38,18 +38,15 @@
         </router-link>
       </div>
     </div>
-    =======
     <div class="movies-list">{{}}</div>
-    >>>>>>> 3189efd1371d4eaad0bcc0fb2ba878398408306d
   </div>
 </template>
 
 <script>
 import { useStore } from 'vuex';
 import { computed, ref } from 'vue';
-
 import env from '@/env.js';
-import { ref } from 'vue';
+import { useState, useActions } from 'vuex-composition-helpers';
 
 export default {
   setup() {
@@ -61,27 +58,37 @@ export default {
     const search = ref('');
     const movies = ref([]);
 
+    const movieList = computed(() => store.search.getters.getMovies);
+
+    const pushMovies = movies => {
+      return store.commit('createMovieList', movies);
+    };
+
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
         fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
           .then(response => response.json())
           .then(data => {
-            //Store the ewsponse array
+            //Store the response array
             movies.value = data.Search;
+            pushMovies(movies);
+            console.log(movieList);
+
             // Reset input field
             search.value = '';
           });
 
-        console.log(search.value);
         // Reset input field
         search.value = '';
       }
     };
 
     return {
+      store,
       search,
       movies,
-      SearchMovies
+      SearchMovies,
+      movieList
     };
   }
 };
