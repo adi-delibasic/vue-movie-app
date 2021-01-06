@@ -22,7 +22,7 @@
       <input type="submit" value="Search" />
     </form>
 
-<<<<<<< HEAD
+    <<<<<<< HEAD
     <div class="movie-list">
       <div class="movie" v-for="movie in movies" :key="movie.imdbID">
         <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
@@ -39,9 +39,9 @@
         </router-link>
       </div>
     </div>
-=======
+    =======
     <div class="movies-list">{{}}</div>
->>>>>>> 3189efd1371d4eaad0bcc0fb2ba878398408306d
+    >>>>>>> 3189efd1371d4eaad0bcc0fb2ba878398408306d
   </div>
 </template>
 
