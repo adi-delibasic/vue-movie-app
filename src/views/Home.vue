@@ -57,7 +57,6 @@ export default {
     const movies = ref([]);
 
     const movieList = computed(() => store.getters.getMovies);
-    console.log(movieList);
 
     // const pushMovies = movies => {
     //   return store.commit('createMovieList', movies);
@@ -72,7 +71,7 @@ export default {
             movies.value = data.Search;
             store.commit('createMovieList', movies);
             // movieList = store.search.getters.getMovies;
-            console.log(store.state.movies.value);
+            console.log(store.state.movies);
 
             // Reset input field
             search.value = '';

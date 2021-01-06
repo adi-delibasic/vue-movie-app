@@ -18,8 +18,8 @@ export default createStore({
   },
 
   actions: {
-    createMovieList(context) {
-      context.commit('createMovieList');
+    createMovieList() {
+      commit('createMovieList');
     }
   },
 
