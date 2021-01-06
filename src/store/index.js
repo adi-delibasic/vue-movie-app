@@ -13,18 +13,19 @@ export default createStore({
     createMovieList(state, payload) {
       // state.movies.push(payload);
       state.movies = payload;
-      console.log(state.movies);
     }
   },
 
   actions: {
-    createMovieList() {
-      commit('createMovieList');
+    createMovieList(state, payload) {
+      state.commit('createMovieList', { payload });
     }
   },
 
   getters: {
-    getMovies: state => state.movies
+    getMovies(state) {
+      return state.movies
+    }
   },
 
   modules: {
