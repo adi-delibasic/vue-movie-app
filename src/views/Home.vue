@@ -22,6 +22,7 @@
       <input type="submit" value="Search" />
     </form>
 
+<<<<<<< HEAD
     <div class="movie-list">
       <div class="movie" v-for="movie in movies" :key="movie.imdbID">
         <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
@@ -38,23 +39,36 @@
         </router-link>
       </div>
     </div>
+=======
+    <div class="movies-list">{{}}</div>
+>>>>>>> 3189efd1371d4eaad0bcc0fb2ba878398408306d
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
+import { useStore } from 'vuex';
+import { computed, ref } from 'vue';
+>>>>>>> 3189efd1371d4eaad0bcc0fb2ba878398408306d
 import env from '@/env.js';
 import { ref } from 'vue';
 
 export default {
   setup() {
     // Vuex
+<<<<<<< HEAD
 
+=======
+    const store = useStore();
+>>>>>>> 3189efd1371d4eaad0bcc0fb2ba878398408306d
     // Search query
     const search = ref('');
     const movies = ref([]);
 
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
+<<<<<<< HEAD
         fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
           .then(response => response.json())
           .then(data => {
@@ -63,6 +77,11 @@ export default {
             // Reset input field
             search.value = '';
           });
+=======
+        console.log(search.value);
+        // Reset input field
+        search.value = '';
+>>>>>>> 3189efd1371d4eaad0bcc0fb2ba878398408306d
       }
     };
 
