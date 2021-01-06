@@ -46,23 +46,22 @@
 import { useStore } from 'vuex';
 import { computed, ref } from 'vue';
 import env from '@/env.js';
-import { useState, useActions } from 'vuex-composition-helpers';
 
 export default {
-  setup() {
+  setup({ root }) {
     // Vuex
-
     const store = useStore();
 
     // Search query
     const search = ref('');
     const movies = ref([]);
 
-    const movieList = computed(() => store.search.getters.getMovies);
+    const movieList = computed(() => store.getters.getMovies);
+    console.log(movieList);
 
-    const pushMovies = movies => {
-      return store.commit('createMovieList', movies);
-    };
+    // const pushMovies = movies => {
+    //   return store.commit('createMovieList', movies);
+    // };
 
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
@@ -71,8 +70,9 @@ export default {
           .then(data => {
             //Store the response array
             movies.value = data.Search;
-            pushMovies(movies);
-            console.log(movieList);
+            store.commit('createMovieList', movies);
+            // movieList = store.search.getters.getMovies;
+            console.log(store.state.movies.value);
 
             // Reset input field
             search.value = '';
