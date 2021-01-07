@@ -3,19 +3,7 @@
     <!-- Featured movie card -->
     <div class="featured-card">
       <router-link to="/movie/tt0306414">
-        <!-- <img
-          src="https://m.media-amazon.com/images/M/MV5BZmY5ZDMxODEtNWIwOS00NjdkLTkyMjktNWRjMDhmYjJjN2RmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
-          alt="Featured movie poster"
-          class="featured-img"
-        />
-        <div class="detail">
-          <h3>The Wire</h3>
-          <p>
-            Set in Baltimore, this show centers around the city's inner-city drug scene. It starts
-            as mid-level drug dealer, D'Angelo Barksdale beats a murder rap.
-          </p>
-        </div> -->
-        <HomepageHero />
+        <Carousel />
       </router-link>
     </div>
     <form class="search-box" @submit.prevent="SearchMovies()">
@@ -46,13 +34,13 @@
 <script>
 import { useStore } from 'vuex';
 import { ref, computed } from 'vue';
-import HomepageHero from '../components/HomepageHero.vue';
+import Carousel from '../components/Carousel.vue';
 
 import env from '@/env.js';
 
 export default {
   components: {
-    HomepageHero
+    Carousel
   },
 
   setup(props) {
@@ -97,16 +85,6 @@ export default {
 .home {
   .featured-card {
     position: relative;
-
-    .featured-img {
-      display: block;
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      object-position: center;
-      position: relative;
-      z-index: 0;
-    }
   }
 
   .detail {
