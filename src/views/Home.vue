@@ -3,7 +3,7 @@
     <!-- Featured movie card -->
     <div class="featured-card">
       <router-link to="/movie/tt0306414">
-        <img
+        <!-- <img
           src="https://m.media-amazon.com/images/M/MV5BZmY5ZDMxODEtNWIwOS00NjdkLTkyMjktNWRjMDhmYjJjN2RmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
           alt="Featured movie poster"
           class="featured-img"
@@ -14,7 +14,8 @@
             Set in Baltimore, this show centers around the city's inner-city drug scene. It starts
             as mid-level drug dealer, D'Angelo Barksdale beats a murder rap.
           </p>
-        </div>
+        </div> -->
+        <HomepageHero />
       </router-link>
     </div>
     <form class="search-box" @submit.prevent="SearchMovies()">
@@ -45,10 +46,15 @@
 <script>
 import { useStore } from 'vuex';
 import { ref, computed } from 'vue';
+import HomepageHero from '../components/HomepageHero.vue';
 
 import env from '@/env.js';
 
 export default {
+  components: {
+    HomepageHero
+  },
+
   setup(props) {
     const store = useStore();
     // Vuex
