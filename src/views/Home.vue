@@ -23,7 +23,7 @@
     </form>
 
     <div class="movie-list">
-      <div class="movie" v-for="movie in movies" :key="movie.imdbID">
+      <div class="movie" v-for="movie in movieList" :key="movie.imdbID">
         <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
           <div class="movie-image">
             <img :src="movie.Poster" alt="Movie Poster" />
@@ -45,7 +45,6 @@
 <script>
 import { useStore } from 'vuex';
 import { ref, computed } from 'vue';
-import { useGetters, useActions } from 'vuex-composition-helpers';
 
 import env from '@/env.js';
 
@@ -68,8 +67,8 @@ export default {
           .then(data => {
             //Store the response array
             movies.value = data.Search;
-            store.dispatch('createMovieList', { movies });
-            console.log(movieList);
+            store.commit('createMovieList', movies);
+            console.log(movieList.value);
           });
 
         // Reset input field
