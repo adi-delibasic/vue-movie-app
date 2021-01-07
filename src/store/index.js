@@ -12,7 +12,6 @@ export default createStore({
 
   mutations: {
     createMovieList(state, payload) {
-      // state.movies.push(payload);
       state.movies = payload.value;
     }
   },
