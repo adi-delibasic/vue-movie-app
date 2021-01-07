@@ -6,10 +6,12 @@ import { createStore } from 'vuex';
 export default createStore({
 
   state: {
-    movies: ['Film'],
+
+    movies: [],
   },
 
   mutations: {
+
     createMovieList(state, payload) {
       // state.movies.push(payload);
       state.movies = payload;
@@ -17,6 +19,7 @@ export default createStore({
   },
 
   actions: {
+
     createMovieList(state, payload) {
       state.commit('createMovieList', { payload });
     }

@@ -45,18 +45,21 @@
 <script>
 import { useStore } from 'vuex';
 import { ref, computed } from 'vue';
+import { useGetters, useActions } from 'vuex-composition-helpers';
 
 import env from '@/env.js';
 
 export default {
   setup(props) {
-    // Vuex
     const store = useStore();
-    const movieList = computed(() => store.getters.getMovies);
+    // Vuex
+    const movieList = computed(() => {
+      return store.getters.getMovies;
+    });
 
     // Search query
     const search = ref('');
-    const movies = ref([]);
+    const movies = [];
 
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
@@ -66,9 +69,7 @@ export default {
             //Store the response array
             movies.value = data.Search;
             store.dispatch('createMovieList', { movies });
-            console.log(movieList.value);
-            // Reset input field
-            search.value = '';
+            console.log(movieList);
           });
 
         // Reset input field
