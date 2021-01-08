@@ -24,9 +24,12 @@ export default {
     const currentSlide = computed(() => {
       return store.getters.getCurrentSlide;
     });
+    const slides = computed(() => {
+      return store.getters.getCurrentSlide;
+    });
 
     onBeforeMount(() => {
-      console.log(currentSlide.value);
+      console.log(slides.value);
     });
 
     return {
