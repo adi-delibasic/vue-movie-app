@@ -16,8 +16,23 @@
 </template>
 
 <script>
+import { onBeforeMount, computed } from 'vue';
+import { useStore } from 'vuex';
 export default {
-  props: ['img']
+  setup() {
+    const store = useStore();
+    const currentSlide = computed(() => {
+      return store.getters.getCurrentSlide;
+    });
+
+    onBeforeMount(() => {
+      console.log(currentSlide.value);
+    });
+
+    return {
+      currentSlide
+    };
+  }
 };
 </script>
 <style lang="scss">
