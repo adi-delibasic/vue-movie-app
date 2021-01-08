@@ -1,32 +1,32 @@
 import { createStore } from 'vuex';
-// import search from './modules/search';
+import search from './modules/search';
 
 
 
 export default createStore({
 
-  state: {
-    keywords: '',
-    movies: [],
-  },
+  // state: {
+  //   keywords: '',
+  //   movies: [],
+  // },
 
-  mutations: {
-    createMovieList(state, payload) {
-      state.movies = payload.value;
-    }
-  },
+  // mutations: {
+  //   createMovieList(state, payload) {
+  //     state.movies = payload.value;
+  //   }
+  // },
 
-  actions: {
+  // actions: {
 
-  },
+  // },
 
-  getters: {
-    getMovies(state) {
-      return state.movies
-    }
-  },
+  // getters: {
+  //   getMovies(state) {
+  //     return state.movies
+  //   }
+  // },
 
   modules: {
-
+    search,
   },
 });
