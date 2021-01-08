@@ -2,9 +2,7 @@
   <div class="home">
     <!-- Featured movie card -->
     <div class="featured-card">
-      <router-link to="/movie/tt0306414">
-        <Carousel />
-      </router-link>
+      <Carousel />
     </div>
     <form class="search-box" @submit.prevent="SearchMovies()">
       <input type="text" placeholder="Type the movie name..." v-model="search" />
