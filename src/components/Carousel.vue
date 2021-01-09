@@ -1,18 +1,15 @@
 <template>
-  <router-link to="/movie/tt0306414">
-    <img
-      src="https://m.media-amazon.com/images/M/MV5BZmY5ZDMxODEtNWIwOS00NjdkLTkyMjktNWRjMDhmYjJjN2RmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
-      alt="Featured movie poster"
-      class="featured-img"
-    />
-    <div class="detail">
-      <h3>The Wire</h3>
-      <p>
-        Set in Baltimore, this show centers around the city's inner-city drug scene. It starts as
-        mid-level drug dealer, D'Angelo Barksdale beats a murder rap.
-      </p>
-    </div>
-  </router-link>
+  <div class="carousel" v-for="slide in slides" :key="slide.id">
+    <router-link to="/movie/slide.id">
+      <img :src="slide.poster" alt="Featured movie poster" class="featured-img" />
+      <div class="detail">
+        <h3>{{ slide.title }}</h3>
+        <p>
+          {{ slide.excerpt }}
+        </p>
+      </div>
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -25,7 +22,7 @@ export default {
       return store.getters.getCurrentSlide;
     });
     const slides = computed(() => {
-      return store.getters.getCurrentSlide;
+      return store.getters.getSlides;
     });
 
     onBeforeMount(() => {
@@ -33,7 +30,9 @@ export default {
     });
 
     return {
-      currentSlide
+      currentSlide,
+      slides,
+      store
     };
   }
 };
