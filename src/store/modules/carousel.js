@@ -1,7 +1,7 @@
 export default {
   state: {
     currentSlide: 0,
-
+    visible: false,
     sliders: [
       {
         id: 'tt0306414',
