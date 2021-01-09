@@ -32,7 +32,7 @@
 <script>
 import { useStore } from 'vuex';
 import { ref, computed } from 'vue';
-import Carousel from '../components/Carousel.vue';
+import Carousel from '../components/carousel/Carousel.vue';
 
 import env from '@/env.js';
 
@@ -84,26 +84,6 @@ export default {
   .featured-card {
     position: relative;
   }
-
-  .detail {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba($color: #000000, $alpha: 0.6);
-    z-index: 1;
-    padding: 15px;
-
-    h3 {
-      color: #fff;
-      margin-bottom: 15px;
-    }
-
-    p {
-      color: #fff;
-    }
-  }
-
   .search-box {
     display: flex;
     flex-direction: column;

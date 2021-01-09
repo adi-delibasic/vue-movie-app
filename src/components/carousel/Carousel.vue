@@ -1,14 +1,16 @@
 <template>
   <div class="carousel" v-for="slide in slides" :key="slide.id">
-    <router-link :to="'/movie/' + slide.id">
-      <img :src="slide.poster" alt="Featured movie poster" class="featured-img" />
-      <div class="detail">
-        <h3>{{ slide.title }}</h3>
-        <p>
-          {{ slide.excerpt }}
-        </p>
-      </div>
-    </router-link>
+    <div class="carousel-movie">
+      <router-link :to="'/movie/' + slide.id">
+        <img :src="slide.poster" alt="Featured movie poster" class="featured-img" />
+        <div class="detail">
+          <h3>{{ slide.title }}</h3>
+          <p>
+            {{ slide.excerpt }}
+          </p>
+        </div>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -25,9 +27,7 @@ export default {
       return store.getters.getSlides;
     });
 
-    onBeforeMount(() => {
-      console.log(slides.value);
-    });
+    onBeforeMount(() => {});
 
     return {
       currentSlide,
@@ -40,7 +40,10 @@ export default {
 <style lang="scss">
 .carousel {
   position: relative;
-
+  &-movie {
+    position: absolute;
+    width: 100%;
+  }
   .featured-img {
     display: block;
     width: 100%;
