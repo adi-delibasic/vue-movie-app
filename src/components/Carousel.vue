@@ -1,6 +1,6 @@
 <template>
   <div class="carousel" v-for="slide in slides" :key="slide.id">
-    <router-link to="/movies/{{slide.id}}">
+    <router-link :to="'/movie/' + slide.id">
       <img :src="slide.poster" alt="Featured movie poster" class="featured-img" />
       <div class="detail">
         <h3>{{ slide.title }}</h3>
