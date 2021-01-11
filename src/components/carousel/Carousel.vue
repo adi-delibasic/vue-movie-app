@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { onBeforeMount, computed } from 'vue';
+import { onBeforeMount, computed, ref } from 'vue';
 
 import SingleSlide from './SingleSlide.vue';
 export default {
@@ -45,9 +45,13 @@ export default {
           'Based on the true story of a Russian serial killer who, over many years, claimed over 50 victims...'
       }
     ];
-    const visibleSlide = 0;
+    const visibleSlide = ref(0);
 
-    onBeforeMount(() => {});
+    onBeforeMount(() => {
+      setInterval(() => {
+        visibleSlide.value++;
+      }, 2000);
+    });
 
     return {
       slides,
