@@ -13,6 +13,32 @@ export default {
     SingleSlide
   },
   setup() {
+    const slides = [
+      {
+        id: 'tt0306414',
+        poster:
+          'https://m.media-amazon.com/images/M/MV5BZmY5ZDMxODEtNWIwOS00NjdkLTkyMjktNWRjMDhmYjJjN2RmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg',
+        title: 'The Wire',
+        plot: 'Set in Baltimore, this show centers around the citys inner-city drug scene'
+      },
+      {
+        id: 'tt1020558',
+        poster:
+          'https://m.media-amazon.com/images/M/MV5BMTQ4NTI1MTEzM15BMl5BanBnXkFtZTcwNDc3NDc1Mw@@._V1_SX300.jpg',
+        title: 'Centurion',
+        plot:
+          'Britain, A.D. 117. Quintus Dias, the sole survivor of a Pictish raid on a Roman frontier fort...'
+      },
+      {
+        id: 'tt0112681',
+        poster:
+          'https://m.media-amazon.com/images/M/MV5BNGIwNjAzZmQtMzZmZC00NDM5LTg0ZjctMzZmOTQxM2Y1OGRlXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_SX300.jpg',
+        title: 'Citizen X',
+        plot:
+          'Based on the true story of a Russian serial killer who, over many years, claimed over 50 victims...'
+      }
+    ];
+
     onBeforeMount(() => {});
 
     return {};
