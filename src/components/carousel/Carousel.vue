@@ -47,10 +47,18 @@ export default {
     ];
     const visibleSlide = ref(0);
 
-    onBeforeMount(() => {
+    const SliderActive = slide => {
       setInterval(() => {
-        visibleSlide.value++;
+        if (slide.value === 2) {
+          slide.value = 0;
+        } else {
+          slide.value++;
+        }
+        console.log(slide.value);
       }, 2000);
+    };
+    onBeforeMount(() => {
+      SliderActive(visibleSlide);
     });
 
     return {
