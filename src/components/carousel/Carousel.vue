@@ -54,7 +54,6 @@ export default {
         } else {
           slide.value++;
         }
-        console.log(slide.value);
       }, 2000);
     };
     onBeforeMount(() => {
@@ -63,13 +62,10 @@ export default {
 
     return {
       slides,
-      visibleSlide
+      visibleSlide,
+      SliderActive
     };
   }
 };
 </script>
-<style lang="scss">
-.carousel {
-  position: relative;
-}
-</style>
+<style lang="scss"></style>

@@ -20,14 +20,10 @@ export default {
 </script>
 
 <style lang="scss">
-.carousel-movie {
-  position: absolute;
-  width: 100%;
-}
 .featured-img {
   display: block;
   width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
   object-position: center;
   position: relative;

@@ -8,7 +8,6 @@
       <input type="text" placeholder="Type the movie name..." v-model="search" />
       <input type="submit" value="Search" />
     </form>
-
     <div class="movie-list">
       <div class="movie" v-for="movie in movieList" :key="movie.imdbID">
         <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
