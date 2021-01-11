@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import { useStore } from 'vuex';
-
 export default {
   setup() {
     return {};
