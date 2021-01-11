@@ -38,6 +38,7 @@ export default {
           'Based on the true story of a Russian serial killer who, over many years, claimed over 50 victims...'
       }
     ];
+    const visibleSlide = 0;
 
     onBeforeMount(() => {});
 
