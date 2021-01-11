@@ -1,6 +1,13 @@
 <template>
-  <div class="carousel" v-for="slide in slides" :key="slide.id">
-    <SingleSlide :title="slide.title" :plot="slide.plot" :id="slide.id" :poster="slide.poster" />
+  <div class="carousel" v-for="(slide, index) in slides" :key="slide.id">
+    <SingleSlide
+      :title="slide.title"
+      :plot="slide.plot"
+      :id="slide.id"
+      :poster="slide.poster"
+      :visibleSlide="visibleSlide"
+      :index="index"
+    />
   </div>
 </template>
 
@@ -43,7 +50,8 @@ export default {
     onBeforeMount(() => {});
 
     return {
-      slides
+      slides,
+      visibleSlide
     };
   }
 };
