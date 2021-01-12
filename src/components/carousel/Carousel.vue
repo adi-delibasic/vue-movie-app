@@ -10,7 +10,6 @@
       :visibleSlide="visibleSlide"
       :index="index"
       :visible="index"
-      v-show="visibleSlide === index"
     />
   </div>
 </template>
