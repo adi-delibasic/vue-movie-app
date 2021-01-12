@@ -50,18 +50,14 @@ export default {
 
     const SliderActive = slide => {
       interval.value = setInterval(() => {
-        if (slide.value === 2) {
-          slide.value = 0;
-        } else {
-          console.log('changing slide');
-          slide.value++;
-        }
+        slide.value === 2 ? (slide.value = 0) : slide.value++;
       }, 2000);
     };
     onBeforeMount(() => {
       SliderActive(visibleSlide);
     });
 
+    // Clear slider interval on other pages
     onBeforeUnmount(() => {
       clearInterval(interval.value);
     });
@@ -69,7 +65,8 @@ export default {
     return {
       slides,
       visibleSlide,
-      SliderActive
+      SliderActive,
+      interval
     };
   }
 };
