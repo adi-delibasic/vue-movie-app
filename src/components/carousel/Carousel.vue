@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { onBeforeMount, computed, ref } from 'vue';
+import { onBeforeMount, computed, ref, onBeforeUnmount } from 'vue';
 
 import SingleSlide from './SingleSlide.vue';
 export default {
@@ -46,18 +46,24 @@ export default {
       }
     ];
     const visibleSlide = ref(0);
+    const interval = ref('');
 
     const SliderActive = slide => {
-      setInterval(() => {
+      interval.value = setInterval(() => {
         if (slide.value === 2) {
           slide.value = 0;
         } else {
+          console.log('changing slide');
           slide.value++;
         }
       }, 2000);
     };
     onBeforeMount(() => {
       SliderActive(visibleSlide);
+    });
+
+    onBeforeUnmount(() => {
+      clearInterval(interval.value);
     });
 
     return {
