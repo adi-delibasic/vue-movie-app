@@ -1,12 +1,16 @@
 <template>
-  <div class="carousel" v-for="(slide, index) in slides" :key="slide.id">
+  <div class="carousel">
     <SingleSlide
+      v-for="(slide, index) in slides"
+      :key="slide.id"
       :title="slide.title"
       :plot="slide.plot"
       :id="slide.id"
       :poster="slide.poster"
       :visibleSlide="visibleSlide"
       :index="index"
+      :visible="index"
+      v-show="visibleSlide === index"
     />
   </div>
 </template>
@@ -71,4 +75,14 @@ export default {
   }
 };
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease;
+  position: absolute;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(500px);
+}
+</style>
