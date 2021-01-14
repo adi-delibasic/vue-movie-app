@@ -1,15 +1,13 @@
 <template>
-  <transition name="fade">
-    <div class="carousel-movie" v-show="visibleSlide === index">
-      <router-link :to="'/movie/' + id">
-        <img :src="poster" alt="Featured movie poster" class="featured-img" />
-        <div class="detail">
-          <h3>{{ title }}</h3>
-          <p>{{ plot }}</p>
-        </div>
-      </router-link>
-    </div>
-  </transition>
+  <div class="carousel-movie" v-show="visibleSlide === index">
+    <router-link :to="'/movie/' + id">
+      <img :src="poster" alt="Featured movie poster" class="featured-img" />
+      <div class="detail">
+        <h3>{{ title }}</h3>
+        <p>{{ plot }}</p>
+      </div>
+    </router-link>
+  </div>
 </template>
 
 <script>

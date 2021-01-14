@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel">
+  <transition-group name="fade" tag="div">
     <SingleSlide
       v-for="(slide, index) in slides"
       :key="slide.id"
@@ -11,7 +11,7 @@
       :index="index"
       :visible="index"
     />
-  </div>
+  </transition-group>
 </template>
 
 <script>
