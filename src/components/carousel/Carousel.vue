@@ -1,17 +1,15 @@
 <template>
-  <transition-group name="fade" tag="div">
-    <SingleSlide
-      v-for="(slide, index) in slides"
-      :key="slide.id"
-      :title="slide.title"
-      :plot="slide.plot"
-      :id="slide.id"
-      :poster="slide.poster"
-      :visibleSlide="visibleSlide"
-      :index="index"
-      :visible="index"
-    />
-  </transition-group>
+  <SingleSlide
+    v-for="(slide, index) in slides"
+    :key="slide.id"
+    :title="slide.title"
+    :plot="slide.plot"
+    :id="slide.id"
+    :poster="slide.poster"
+    :visibleSlide="visibleSlide"
+    :index="index"
+    :visible="index"
+  />
 </template>
 
 <script>
