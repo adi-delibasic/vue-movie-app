@@ -21,7 +21,6 @@ export default {
 
 <style lang="scss">
 .carousel-movie {
-  position: absolute;
   width: 100%;
 }
 .featured-img {
