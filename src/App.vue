@@ -5,8 +5,7 @@
         <h1><span>Movies</span>DB</h1>
       </router-link>
     </header>
-    <Spiner v-if="loading" />
-    <main v-else>
+    <main>
       <router-view />
     </main>
     <footer></footer>
@@ -26,15 +25,8 @@ export default {
   setup() {
     const store = useStore();
 
-    const loading = computed(() => {
-      return store.getters.loadingSpiner;
-    });
-
-    console.log(loading.value);
-
     return {
-      store,
-      loading
+      store
     };
   }
 };

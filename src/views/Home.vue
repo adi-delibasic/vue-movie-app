@@ -8,23 +8,27 @@
       <input type="text" placeholder="Type the movie name..." v-model="search" />
       <input type="submit" value="Search" />
     </form>
-    <div class="movie-list">
-      <div class="movie" v-for="movie in movieList" :key="movie.imdbID">
-        <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
-          <div class="movie-image">
-            <img :src="movie.Poster" alt="Movie Poster" />
-            <div class="movie-type">
-              {{ movie.Type }}
+    <!-- loading spinner -->
+    <Spiner v-if="loading" />
+    <div v-else>
+      <div class="movie-list">
+        <div class="movie" v-for="movie in movieList" :key="movie.imdbID">
+          <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
+            <div class="movie-image">
+              <img :src="movie.Poster" alt="Movie Poster" />
+              <div class="movie-type">
+                {{ movie.Type }}
+              </div>
             </div>
-          </div>
-          <div class="movie-details">
-            <p class="movie-year">{{ movie.Year }}</p>
-            <h3 class="movie-title">{{ movie.Title }}</h3>
-          </div>
-        </router-link>
+            <div class="movie-details">
+              <p class="movie-year">{{ movie.Year }}</p>
+              <h3 class="movie-title">{{ movie.Title }}</h3>
+            </div>
+          </router-link>
+        </div>
       </div>
+      <div class="movies-list">{{}}</div>
     </div>
-    <div class="movies-list">{{}}</div>
   </div>
 </template>
 
@@ -32,12 +36,14 @@
 import { useStore } from 'vuex';
 import { ref, computed } from 'vue';
 import Carousel from '../components/carousel/Carousel.vue';
+import Spiner from '../components/Spiner';
 
 import env from '@/env.js';
 
 export default {
   components: {
-    Carousel
+    Carousel,
+    Spiner
   },
 
   setup(props) {
@@ -45,6 +51,11 @@ export default {
     // Vuex
     const movieList = computed(() => {
       return store.getters.getMovies;
+    });
+
+    // spiner icon
+    const loading = computed(() => {
+      return store.getters.loadingSpiner;
     });
 
     // Search query
@@ -74,7 +85,8 @@ export default {
       search,
       movies,
       SearchMovies,
-      movieList
+      movieList,
+      loading
     };
   }
 };
