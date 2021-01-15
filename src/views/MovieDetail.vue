@@ -1,4 +1,5 @@
 <template>
+  <Spiner v-if="loading" />
   <div class="movie-detail">
     <h2>{{ movie.Title }}</h2>
     <p>{{ movie.Year }}</p>
@@ -20,11 +21,18 @@ export default {
   setup() {
     const movie = ref({});
     const route = useRoute();
+    const store = useStore();
+
+    const loading = computed(() => {
+      return store.getters.loadingSpiner;
+    });
 
     onBeforeMount(() => {
       fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`)
         .then(response => response.json())
+        .then(store.commit('loadingSpiner'))
         .then(data => {
+          store.commit('loadingSpiner');
           movie.value = data;
           console.log(data);
         });
@@ -32,7 +40,8 @@ export default {
 
     return {
       movie,
-      route
+      route,
+      loading
     };
   }
 };
