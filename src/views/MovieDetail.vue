@@ -2,7 +2,7 @@
   <div class="movie-detail">
     <h2>{{ movie.Title }}</h2>
     <p>{{ movie.Year }}</p>
-    <img :src="movie.Poster" class="feature-img" alt="{{movie.Title}} poster" />
+    <img :src="movie.Poster" class="feature-img" :alt="movie.Title" />
     <p>{{ movie.Plot }}</p>
   </div>
 </template>
