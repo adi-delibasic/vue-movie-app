@@ -13,7 +13,11 @@ export default {
 
     loadingSpiner(state) {
       state.loading = !state.loading;
-    }
+    },
+    endLoadingSpiner(state) {
+      state.loading = false
+    },
+
   },
 
   actions: {

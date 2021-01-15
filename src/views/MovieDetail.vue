@@ -8,10 +8,15 @@
 </template>
 
 <script>
-import { ref, onBeforeMount } from 'vue';
-import { useRoute } from 'vue-router';
+import { ref, onBeforeMount, computed } from 'vue';
+import { onBeforeRouteLeave, useRoute } from 'vue-router';
+import { useStore } from 'vuex';
 import env from '@/env.js';
+import Spiner from '../components/Spiner';
 export default {
+  components: {
+    Spiner
+  },
   setup() {
     const movie = ref({});
     const route = useRoute();
