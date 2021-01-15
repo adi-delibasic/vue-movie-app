@@ -5,12 +5,23 @@
         <h1><span>Movies</span>DB</h1>
       </router-link>
     </header>
+    <Spiner />
     <main>
       <router-view />
     </main>
     <footer></footer>
   </div>
 </template>
+
+<script>
+import Spiner from './components/Spiner';
+
+export default {
+  components: {
+    Spiner
+  }
+};
+</script>
 
 <style lang="scss">
 * {
