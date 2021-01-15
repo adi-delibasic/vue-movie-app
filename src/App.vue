@@ -5,7 +5,7 @@
         <h1><span>Movies</span>DB</h1>
       </router-link>
     </header>
-    <Spiner />
+    <Spiner v-if="loading" />
     <main>
       <router-view />
     </main>
@@ -15,10 +15,27 @@
 
 <script>
 import Spiner from './components/Spiner';
+import { useStore } from 'vuex';
+import { computed, ref } from 'vue';
 
 export default {
   components: {
     Spiner
+  },
+
+  setup() {
+    const store = useStore();
+
+    const loading = computed(() => {
+      return store.getters.loadingSpiner;
+    });
+
+    console.log(loading.value);
+
+    return {
+      store,
+      loading
+    };
   }
 };
 </script>
