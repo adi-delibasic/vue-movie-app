@@ -1,9 +1,20 @@
 <template>
   <Spiner v-if="loading" />
-  <div class="movie-detail">
+
+  <div v-else class="movie-detail">
     <h2>{{ movie.Title }}</h2>
     <p>{{ movie.Year }}</p>
-    <img :src="movie.Poster" class="feature-img" :alt="movie.Title" />
+    <div class="extra-details">
+      <img :src="movie.Poster" class="feature-img" :alt="movie.Title" />
+      <div class="extra-container">
+        <p>
+          Imdb: <br />
+          {{ movie.imdbRating }}
+        </p>
+        <p>Metascore: {{ movie.Metascore }}</p>
+        <p>Language: {{ movie.Language }}</p>
+      </div>
+    </div>
     <p>{{ movie.Plot }}</p>
   </div>
 </template>
@@ -64,6 +75,16 @@ export default {
     color: #fff;
     font-size: 18px;
     line-height: 1.4;
+  }
+  .extra-details {
+    display: flex;
+    justify-content: space-between;
+    .extra-container {
+      padding: 25px;
+      p {
+        margin: 8px 0px;
+      }
+    }
   }
 }
 </style>
