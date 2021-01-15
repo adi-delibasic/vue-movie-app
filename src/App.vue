@@ -6,7 +6,7 @@
       </router-link>
     </header>
     <Spiner v-if="loading" />
-    <main>
+    <main v-else>
       <router-view />
     </main>
     <footer></footer>

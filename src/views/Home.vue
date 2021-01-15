@@ -55,9 +55,11 @@ export default {
       if (search.value != '' || search.value != null) {
         fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
           .then(response => response.json())
+          .then(store.commit('loadingSpiner'))
           .then(data => {
             //Store the response array
             movies.value = data.Search;
+            store.commit('loadingSpiner');
             store.commit('createMovieList', movies);
             console.log(movieList.value);
           });
