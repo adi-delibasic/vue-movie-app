@@ -15,7 +15,7 @@ export default {
       state.loading = !state.loading;
     },
     endLoadingSpiner(state) {
-      state.loading = false
+      state.loading = false;
     },
 
   },
@@ -26,12 +26,12 @@ export default {
 
   getters: {
     getMovies(state) {
-      return state.movies
+      return state.movies;
     },
 
     loadingSpiner(state) {
-      return state.loading
-    }
+      return state.loading;
+    },
   },
 
-}
+};

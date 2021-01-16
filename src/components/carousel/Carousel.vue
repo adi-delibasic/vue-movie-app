@@ -1,24 +1,27 @@
 <template>
   <SingleSlide
     v-for="(slide, index) in slides"
+    :id="slide.id"
     :key="slide.id"
     :title="slide.title"
     :plot="slide.plot"
-    :id="slide.id"
     :poster="slide.poster"
-    :visibleSlide="visibleSlide"
+    :visible-slide="visibleSlide"
     :index="index"
     :visible="index"
   />
 </template>
 
 <script>
-import { onBeforeMount, computed, ref, onBeforeUnmount } from 'vue';
+import {
+  onBeforeMount, computed, ref, onBeforeUnmount,
+} from 'vue';
 
 import SingleSlide from './SingleSlide.vue';
+
 export default {
   components: {
-    SingleSlide
+    SingleSlide,
   },
   setup() {
     const slides = [
@@ -27,7 +30,7 @@ export default {
         poster:
           'https://m.media-amazon.com/images/M/MV5BZmY5ZDMxODEtNWIwOS00NjdkLTkyMjktNWRjMDhmYjJjN2RmXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg',
         title: 'The Wire',
-        plot: 'Set in Baltimore, this show centers around the citys inner-city drug scene'
+        plot: 'Set in Baltimore, this show centers around the citys inner-city drug scene',
       },
       {
         id: 'tt1020558',
@@ -35,7 +38,7 @@ export default {
           'https://m.media-amazon.com/images/M/MV5BMTQ4NTI1MTEzM15BMl5BanBnXkFtZTcwNDc3NDc1Mw@@._V1_SX300.jpg',
         title: 'Centurion',
         plot:
-          'Britain, A.D. 117. Quintus Dias, the sole survivor of a Pictish raid on a Roman frontier fort...'
+          'Britain, A.D. 117. Quintus Dias, the sole survivor of a Pictish raid on a Roman frontier fort...',
       },
       {
         id: 'tt0112681',
@@ -43,13 +46,13 @@ export default {
           'https://m.media-amazon.com/images/M/MV5BNGIwNjAzZmQtMzZmZC00NDM5LTg0ZjctMzZmOTQxM2Y1OGRlXkEyXkFqcGdeQXVyNTM0NTU5Mg@@._V1_SX300.jpg',
         title: 'Citizen X',
         plot:
-          'Based on the true story of a Russian serial killer who, over many years, claimed over 50 victims...'
-      }
+          'Based on the true story of a Russian serial killer who, over many years, claimed over 50 victims...',
+      },
     ];
     const visibleSlide = ref(0);
     const interval = ref('');
 
-    const SliderActive = slide => {
+    const SliderActive = (slide) => {
       interval.value = setInterval(() => {
         slide.value === 2 ? (slide.value = 0) : slide.value++;
       }, 2000);
@@ -67,9 +70,9 @@ export default {
       slides,
       visibleSlide,
       SliderActive,
-      interval
+      interval,
     };
-  }
+  },
 };
 </script>
 <style lang="scss">

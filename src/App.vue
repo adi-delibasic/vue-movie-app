@@ -8,27 +8,27 @@
     <main>
       <router-view />
     </main>
-    <footer></footer>
+    <footer />
   </div>
 </template>
 
 <script>
-import Spiner from './components/Spiner';
 import { useStore } from 'vuex';
 import { computed, ref } from 'vue';
+import Spiner from './components/Spiner';
 
 export default {
   components: {
-    Spiner
+    Spiner,
   },
 
   setup() {
     const store = useStore();
 
     return {
-      store
+      store,
     };
-  }
+  },
 };
 </script>
 

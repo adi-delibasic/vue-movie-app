@@ -1,7 +1,14 @@
 <template>
-  <div class="carousel-movie" v-show="visibleSlide === index">
+  <div
+    v-show="visibleSlide === index"
+    class="carousel-movie"
+  >
     <router-link :to="'/movie/' + id">
-      <img :src="poster" alt="Featured movie poster" class="featured-img" />
+      <img
+        :src="poster"
+        alt="Featured movie poster"
+        class="featured-img"
+      >
       <div class="detail">
         <h3>{{ title }}</h3>
         <p>{{ plot }}</p>
@@ -15,7 +22,7 @@ export default {
   props: ['id', 'title', 'plot', 'poster', 'visibleSlide', 'index'],
   setup() {
     return {};
-  }
+  },
 };
 </script>
 

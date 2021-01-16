@@ -1,14 +1,14 @@
 <template>
   <div class="lds-wrapper">
     <div class="lds-roller">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
+      <div />
     </div>
   </div>
 </template>
