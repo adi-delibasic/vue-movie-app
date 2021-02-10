@@ -7,7 +7,7 @@ yarn-error.log
 # local env files
 .env.local
 .env.*.local
-env.js
+src/env.js
 .gitignore
 
 # Log files
