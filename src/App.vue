@@ -14,21 +14,20 @@
 
 <script>
 import { useStore } from 'vuex';
-import { computed, ref } from 'vue';
 import Spiner from './components/Spiner';
 
 export default {
   components: {
-    Spiner,
+    Spiner
   },
 
   setup() {
     const store = useStore();
 
     return {
-      store,
+      store
     };
-  },
+  }
 };
 </script>
 
@@ -62,7 +61,7 @@ header {
   text-transform: uppercase;
 
   h1 {
-    color: #f4a261;
+    color: #e9c46a;
     font-size: 30px;
     text-transform: capitalize;
 
