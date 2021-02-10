@@ -1,6 +1,6 @@
 # vue-movie-app
 
-## Vue 3 composition API, Vue Router & Vuex 4 modules - mobile screensize only!
+### Vue 3 composition API, Vue Router & Vuex 4 - mobile screensize only!
 
 ## Project setup
 
