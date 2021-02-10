@@ -1,21 +1,14 @@
 <template>
   <Spiner v-if="loading" />
 
-  <div
-    v-else
-    class="movie-detail"
-  >
+  <div v-else class="movie-detail">
     <h2>{{ movie.Title }}</h2>
     <p>{{ movie.Year }}</p>
     <div class="extra-details">
-      <img
-        :src="movie.Poster"
-        class="feature-img"
-        :alt="movie.Title"
-      >
+      <img :src="movie.Poster" class="feature-img" :alt="movie.Title" />
       <div class="extra-container">
         <p>
-          Imdb: <br>
+          Imdb: <br />
           {{ movie.imdbRating }}
         </p>
         <p>Metascore: {{ movie.Metascore }}</p>
@@ -35,7 +28,7 @@ import Spiner from '../components/Spiner';
 
 export default {
   components: {
-    Spiner,
+    Spiner
   },
   setup() {
     const movie = ref({});
@@ -46,9 +39,9 @@ export default {
 
     onBeforeMount(() => {
       fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`)
-        .then((response) => response.json())
+        .then(response => response.json())
         .then(store.commit('loadingSpiner'))
-        .then((data) => {
+        .then(data => {
           store.commit('loadingSpiner');
           movie.value = data;
           console.log(data);
@@ -58,9 +51,9 @@ export default {
     return {
       movie,
       route,
-      loading,
+      loading
     };
-  },
+  }
 };
 </script>
 

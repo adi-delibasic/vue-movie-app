@@ -20,10 +20,6 @@ export default {
 
   },
 
-  actions: {
-
-  },
-
   getters: {
     getMovies(state) {
       return state.movies;
