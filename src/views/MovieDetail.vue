@@ -43,9 +43,18 @@ export default {
         .then(store.commit('loadingSpiner'))
         .then(data => {
           store.commit('loadingSpiner');
+
           movie.value = data;
-          console.log(data.Poster);
+          checkMovieImg(movie);
+          console.log(movie.value.Poster);
         });
+
+      const checkMovieImg = movie => {
+        if (movie.value.Poster == 'N/A') {
+          movie.value.Poster =
+            'https://image.freepik.com/free-vector/photo-coming-soon_77760-116.jpg';
+        }
+      };
     });
 
     return {
