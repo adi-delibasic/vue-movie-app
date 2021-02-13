@@ -21,7 +21,7 @@
 
 <script>
 import { ref, onBeforeMount, computed } from 'vue';
-import { onBeforeRouteLeave, useRoute } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 import env from '@/env.js';
 import Spiner from '../components/Spiner';
