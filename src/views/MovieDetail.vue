@@ -44,7 +44,7 @@ export default {
         .then(data => {
           store.commit('loadingSpiner');
           movie.value = data;
-          console.log(data);
+          console.log(data.Poster);
         });
     });
 

@@ -4,38 +4,18 @@
     <div class="featured-card">
       <Carousel />
     </div>
-    <form
-      class="search-box"
-      @submit.prevent="SearchMovies()"
-    >
-      <input
-        v-model="search"
-        type="text"
-        placeholder="Type the movie name..."
-      >
-      <input
-        type="submit"
-        value="Search"
-      >
+    <form class="search-box" @submit.prevent="SearchMovies()">
+      <input v-model="search" type="text" placeholder="Type the movie name..." />
+      <input type="submit" value="Search" />
     </form>
     <!-- loading spinner -->
     <Spiner v-if="loading" />
     <div v-else>
       <div class="movie-list">
-        <div
-          v-for="movie in movieList"
-          :key="movie.imdbID"
-          class="movie"
-        >
-          <router-link
-            class="movie-link"
-            :to="'/movie/' + movie.imdbID"
-          >
+        <div v-for="movie in movieList" :key="movie.imdbID" class="movie">
+          <router-link class="movie-link" :to="'/movie/' + movie.imdbID">
             <div class="movie-image">
-              <img
-                :src="movie.Poster"
-                alt="Movie Poster"
-              >
+              <img :src="movie.Poster" alt="Movie Poster" />
               <div class="movie-type">
                 {{ movie.Type }}
               </div>
@@ -51,9 +31,6 @@
           </router-link>
         </div>
       </div>
-      <div class="movies-list">
-        {{}}
-      </div>
     </div>
   </div>
 </template>
@@ -68,7 +45,7 @@ import Spiner from '../components/Spiner';
 export default {
   components: {
     Carousel,
-    Spiner,
+    Spiner
   },
 
   setup(props) {
@@ -78,6 +55,7 @@ export default {
 
     // spiner icon
     const loading = computed(() => store.getters.loadingSpiner);
+    // Check for movie img
 
     // Search query
     const search = ref('');
@@ -86,14 +64,15 @@ export default {
     const SearchMovies = () => {
       if (search.value != '' || search.value != null) {
         fetch(`http://www.omdbapi.com/?apikey=${env.apikey}&s=${search.value}`)
-          .then((response) => response.json())
+          .then(response => response.json())
           .then(store.commit('loadingSpiner'))
-          .then((data) => {
+          .then(data => {
             // Store the response array
+
             movies.value = data.Search;
             store.commit('loadingSpiner');
             store.commit('createMovieList', movies);
-            console.log(movieList.value);
+            // console.log(movieList.value);
           });
 
         // Reset input field
@@ -107,9 +86,9 @@ export default {
       movies,
       SearchMovies,
       movieList,
-      loading,
+      loading
     };
-  },
+  }
 };
 </script>
 
