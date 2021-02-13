@@ -43,10 +43,8 @@ export default {
         .then(store.commit('loadingSpiner'))
         .then(data => {
           store.commit('loadingSpiner');
-
           movie.value = data;
           checkMovieImg(movie);
-          console.log(movie.value.Poster);
         });
 
       const checkMovieImg = movie => {
