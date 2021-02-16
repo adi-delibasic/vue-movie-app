@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <header>
-      <router-link to="/">
-        <h1><span>Movies</span>DB</h1>
+      <router-link class="logo-center" to="/">
+        <img src="./assets/logo.png" alt="" />
       </router-link>
     </header>
-    <main>
-      <router-view />
-    </main>
+    <div id="app-inner">
+      <main class="homepage-main">
+        <router-view />
+      </main>
+    </div>
     <footer />
   </div>
 </template>
@@ -43,14 +45,25 @@ export default {
   }
 }
 
+#app-inner {
+  margin-top: 30px !important;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0px 10px 13px -7px #000000, 35px -20px 3px -24px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
 body {
   background: #2d2d2d;
 }
-
-a {
-  text-decoration: none;
+.logo-center {
+  text-align: center;
 }
-
+@media only screen and (min-width: 768px) {
+  #app-inner {
+    max-width: 800px;
+    margin: auto;
+  }
+}
 header {
   display: flex;
   align-items: center;
@@ -60,6 +73,9 @@ header {
   box-shadow: 0px 0px 5px rgba(#000000, 0.2);
   text-transform: uppercase;
 
+  img {
+    width: 20%;
+  }
   h1 {
     color: #e9c46a;
     font-size: 30px;
