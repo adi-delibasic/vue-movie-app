@@ -1,14 +1,7 @@
 <template>
-  <div
-    v-show="visibleSlide === index"
-    class="carousel-movie"
-  >
+  <div v-show="visibleSlide === index" class="carousel-movie">
     <router-link :to="'/movie/' + id">
-      <img
-        :src="poster"
-        alt="Featured movie poster"
-        class="featured-img"
-      >
+      <img :src="poster" alt="Featured movie poster" class="featured-img" />
       <div class="detail">
         <h3>{{ title }}</h3>
         <p>{{ plot }}</p>
@@ -22,11 +15,11 @@ export default {
   props: ['id', 'title', 'plot', 'poster', 'visibleSlide', 'index'],
   setup() {
     return {};
-  },
+  }
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .carousel-movie {
   width: 100%;
 }
@@ -38,6 +31,7 @@ export default {
   object-position: center;
   position: relative;
   z-index: 0;
+  border-radius: 10px;
 }
 
 .detail {
@@ -48,6 +42,7 @@ export default {
   background-color: rgba($color: #000000, $alpha: 0.6);
   z-index: 1;
   padding: 15px;
+  border-radius: 0 0 10px 10px;
 
   h3 {
     color: #fff;
