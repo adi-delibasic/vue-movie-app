@@ -32,6 +32,7 @@ export default {
   position: relative;
   z-index: 0;
   border-radius: 10px;
+  margin-top: 15px;
 }
 
 .detail {
